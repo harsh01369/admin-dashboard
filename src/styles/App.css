@@ -11,14 +11,18 @@ body {
 }
 
 .App-logo {
-    height: 40vmin;
+    height: 40px;
     pointer-events: none;
 }
 
 .App-header {
-    background-color: #282c34;
+    background-color: #f8f9fa;
     padding: 20px;
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
     .App-header h1 {
