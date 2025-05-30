@@ -11,7 +11,7 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/admin/login', { username, password }, { withCredentials: true });
+            const response = await axios.post('https://ecommerce-backend.onrender.com/api/admin/login', { username, password }, { withCredentials: true });
 
             if (response.status === 200) {
                 localStorage.setItem('adminToken', response.data.token);
