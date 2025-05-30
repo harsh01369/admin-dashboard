@@ -29,11 +29,15 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
+<<<<<<< HEAD
             const response = await axios.post(
                 'https://ecommerce-backend.onrender.com/api/admin/login',
                 { username, password },
                 { withCredentials: true }
             );
+=======
+            const response = await axios.post('https://ecommerce-backend.onrender.com/api/admin/login', { username, password }, { withCredentials: true });
+>>>>>>> 39e2e44d81558b307a92c2a8bb6e6ff3fedeed23
 
             if (response.status === 200 && response.data.isAdmin) {
                 setAdminAuthenticated(true);
