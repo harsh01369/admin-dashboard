@@ -1,6 +1,6 @@
 ﻿import axios from 'axios';
 
-const API_URL = process.env.NODE_ENV === 'production' ? '/api/products' : 'http://localhost:5000/api/products';
+const API_URL = 'https://ecommerce-backend.onrender.com/api/products';
 
 const getAdminProducts = async () => {
     try {
