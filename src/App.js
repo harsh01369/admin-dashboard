@@ -8,7 +8,7 @@ import Orders from './components/Orders';
 import Users from './components/Users';
 import Sales from './components/Sales';
 import PrintOrder from './components/PrintOrder';
-import uwearlogo from './assets/UWEAR.jpg'; // Import the logo
+
 
 function App() {
     const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
@@ -52,10 +52,6 @@ function App() {
         <Router>
             <div className="App">
                 {/* Add header with logo and title */}
-                <header className="App-header">
-                    <img src={uwearlogo} className="App-logo" alt="UWEAR Admin Logo" />
-                    <h1>UWEAR Admin</h1>
-                </header>
                 <main className="App-main">
                     <Routes>
                         <Route path="/login" element={<AdminLoginPage setAdminAuthenticated={handleLogin} />} />
