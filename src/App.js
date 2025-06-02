@@ -17,7 +17,7 @@ function App() {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('https://ecommerce-backend.onrender.com/api/admin/checkAuth', { withCredentials: true });
+                const response = await axios.get('https://ecommerce-backend-gpta.onrender.com/api/admin/checkAuth', { withCredentials: true });
                 if (response.status === 200 && response.data.isAdmin) {
                     setIsAdminAuthenticated(true);
                 } else {
@@ -38,7 +38,7 @@ function App() {
 
     const handleLogout = async () => {
         try {
-            await axios.post('https://ecommerce-backend.onrender.com/api/admin/logout', {}, { withCredentials: true });
+            await axios.post('https://ecommerce-backend-gpta.onrender.com/api/admin/logout', {}, { withCredentials: true });
             setIsAdminAuthenticated(false);
             localStorage.removeItem('adminToken');
         } catch (error) {

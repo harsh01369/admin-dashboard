@@ -12,7 +12,7 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('https://ecommerce-backend.onrender.com/api/admin/checkAuth', {
+                const response = await axios.get('https://ecommerce-backend-gpta.onrender.com/api/admin/checkAuth', {
                     withCredentials: true,
                 });
                 if (response.data.isAdmin) {
@@ -30,7 +30,7 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                'https://ecommerce-backend.onrender.com/api/admin/login',
+                'https://ecommerce-backend-gpta.onrender.com/api/admin/login',
                 { username, password },
                 { withCredentials: true }
             );

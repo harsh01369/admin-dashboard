@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://ecommerce-backend.onrender.com/api/orders';
+const API_URL = 'https://ecommerce-backend-gpta.onrender.com/api/orders';
 
 const getOrders = async (page = 1, limit = 50) => {
     try {

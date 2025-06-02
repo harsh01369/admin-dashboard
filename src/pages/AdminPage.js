@@ -101,7 +101,7 @@ const AdminPage = ({ setAdminAuthenticated }) => {
 
     const handleLogout = async () => {
         try {
-            await axios.post('https://ecommerce-backend.onrender.com/api/admin/logout', {}, { withCredentials: true });
+            await axios.post('https://ecommerce-backend-gpta.onrender.com/api/admin/logout', {}, { withCredentials: true });
             setAdminAuthenticated(false);
             navigate('/login');
         } catch (error) {
