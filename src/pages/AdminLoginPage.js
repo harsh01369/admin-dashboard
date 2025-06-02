@@ -12,7 +12,7 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('https://ecommerce-backend.onrender.com/api/admin/checkAuth', {
+                const response = await axios.get('https://ecommerce-backend-gpta.onrender.com/api/admin/checkAuth', {
                     withCredentials: true,
                 });
                 if (response.data.isAdmin) {
@@ -29,16 +29,11 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-<<<<<<< HEAD
             const response = await axios.post(
-                'https://ecommerce-backend.onrender.com/api/admin/login',
+                'https://ecommerce-backend-gpta.onrender.com/api/admin/login',
                 { username, password },
                 { withCredentials: true }
             );
-=======
-            const response = await axios.post('https://ecommerce-backend.onrender.com/api/admin/login', { username, password }, { withCredentials: true });
->>>>>>> 39e2e44d81558b307a92c2a8bb6e6ff3fedeed23
-
             if (response.status === 200 && response.data.isAdmin) {
                 setAdminAuthenticated(true);
                 navigate('/admin');
@@ -53,7 +48,7 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
 
     return (
         <div className="admin-login-page">
-            <h1>UWEAR Admin Login</h1>
+            <h1>Admin Login</h1>
             <form onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="username">Username</label>

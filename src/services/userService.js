@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://ecommerce-backend.onrender.com/api/users';
+const API_URL = 'https://ecommerce-backend-gpta.onrender.com/api/users';
 
 export const getAllUsers = () => {
     return axios.get(API_URL, { withCredentials: true })

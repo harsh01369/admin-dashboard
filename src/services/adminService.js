@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'https://ecommerce-backend.onrender.com/api/admin';
-const ORDERS_URL = 'https://ecommerce-backend.onrender.com/api/orders';
+const API_URL = 'https://ecommerce-backend-gpta.onrender.com/api/admin';
+const ORDERS_URL = 'https://ecommerce-backend-gpta.onrender.com/api/orders';
 
 export const getDashboardMetrics = () => {
     return axios.get(`${API_URL}/metrics`, { withCredentials: true })
