@@ -11,7 +11,8 @@ const getAdminProducts = async () => {
         console.error('getAdminProducts error:', {
             status: error.response?.status,
             data: error.response?.data,
-            message: error.message
+            message: error.message,
+            stack: error.stack
         });
         throw error;
     }
@@ -26,7 +27,8 @@ const getPublicProducts = async () => {
         console.error('getPublicProducts error:', {
             status: error.response?.status,
             data: error.response?.data,
-            message: error.message
+            message: error.message,
+            stack: error.stack
         });
         throw error;
     }
@@ -44,7 +46,8 @@ const createProduct = async (productData) => {
         console.error('createProduct error:', {
             status: error.response?.status,
             data: error.response?.data,
-            message: error.message
+            message: error.message,
+            stack: error.stack
         });
         throw error;
     }
@@ -62,7 +65,8 @@ const updateProduct = async (id, productData) => {
         console.error('updateProduct error:', {
             status: error.response?.status,
             data: error.response?.data,
-            message: error.message
+            message: error.message,
+            stack: error.stack
         });
         throw error;
     }

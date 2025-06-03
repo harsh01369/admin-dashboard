@@ -12,7 +12,8 @@ const getOrders = async (page = 1, limit = 50) => {
         console.error('getOrders error:', {
             status: error.response?.status,
             data: error.response?.data,
-            message: error.message
+            message: error.message,
+            stack: error.stack
         });
         throw error;
     }
@@ -28,7 +29,8 @@ const cancelOrder = async (orderId) => {
         console.error('cancelOrder error:', {
             status: error.response?.status,
             data: error.response?.data,
-            message: error.message
+            message: error.message,
+            stack: error.stack
         });
         throw error;
     }
@@ -44,7 +46,8 @@ const markOrderDelivered = async (orderId) => {
         console.error('markOrderDelivered error:', {
             status: error.response?.status,
             data: error.response?.data,
-            message: error.message
+            message: error.message,
+            stack: error.stack
         });
         throw error;
     }
