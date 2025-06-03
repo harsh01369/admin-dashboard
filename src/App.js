@@ -9,7 +9,6 @@ import Users from './components/Users';
 import Sales from './components/Sales';
 import PrintOrder from './components/PrintOrder';
 
-
 function App() {
     const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +16,7 @@ function App() {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('https://ecommerce-backend-gpta.onrender.com/api/admin/checkAuth', { withCredentials: true });
+                const response = await axios.get('https://ecommerce-backend-gpta.onrender/api/admin/checkAuth', { withCredentials: true });
                 if (response.status === 200 && response.data.isAdmin) {
                     setIsAdminAuthenticated(true);
                 } else {
@@ -38,7 +37,7 @@ function App() {
 
     const handleLogout = async () => {
         try {
-            await axios.post('https://ecommerce-backend-gpta.onrender.com/api/admin/logout', {}, { withCredentials: true });
+            await axios.post('https://ecommerce-backend-gpta.onrender/api/admin/logout', {}, { withCredentials: true });
             setIsAdminAuthenticated(false);
             localStorage.removeItem('adminToken');
         } catch (error) {
@@ -51,7 +50,6 @@ function App() {
     return (
         <Router>
             <div className="App">
-                {/* Add header with logo and title */}
                 <main className="App-main">
                     <Routes>
                         <Route path="/login" element={<AdminLoginPage setAdminAuthenticated={handleLogin} />} />
