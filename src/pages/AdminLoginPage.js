@@ -8,7 +8,6 @@ const AdminLoginPage = ({ setAdminAuthenticated }) => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    // Check if already authenticated on mount
     useEffect(() => {
         const checkAuth = async () => {
             try {

@@ -16,7 +16,7 @@ function App() {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('https://ecommerce-backend-gpta.onrender/api/admin/checkAuth', { withCredentials: true });
+                const response = await axios.get('https://ecommerce-backend-gpta.onrender.com/api/admin/checkAuth', { withCredentials: true });
                 if (response.status === 200 && response.data.isAdmin) {
                     setIsAdminAuthenticated(true);
                 } else {
@@ -31,15 +31,11 @@ function App() {
         checkAuth();
     }, []);
 
-    const handleLogin = () => {
-        setIsAdminAuthenticated(true);
-    };
-
     const handleLogout = async () => {
         try {
-            await axios.post('https://ecommerce-backend-gpta.onrender/api/admin/logout', {}, { withCredentials: true });
+            await axios.post('https://ecommerce-backend-gpta.onrender.com/api/admin/logout', {}, { withCredentials: true });
             setIsAdminAuthenticated(false);
-            localStorage.removeItem('adminToken');
+            localStorage.removeItem('adminToken'); // Remove if not used
         } catch (error) {
             console.error('Logout failed:', error);
         }
@@ -52,10 +48,8 @@ function App() {
             <div className="App">
                 <main className="App-main">
                     <Routes>
-                        <Route path="/login" element={<AdminLoginPage setAdminAuthenticated={handleLogin} />} />
-                        <Route path="/admin/*" element={
-                            isAdminAuthenticated ? <AdminPage setAdminAuthenticated={handleLogout} /> : <Navigate to="/login" />
-                        } />
+                        <Route path="/login" element={<AdminLoginPage setAdminAuthenticated={setIsAdminAuthenticated} />} />
+                        <Route path="/admin/*" element={isAdminAuthenticated ? <AdminPage setAdminAuthenticated={handleLogout} /> : <Navigate to="/login" />} />
                         <Route path="/products" element={isAdminAuthenticated ? <Products /> : <Navigate to="/login" />} />
                         <Route path="/orders" element={isAdminAuthenticated ? <Orders /> : <Navigate to="/login" />} />
                         <Route path="/users" element={isAdminAuthenticated ? <Users /> : <Navigate to="/login" />} />
