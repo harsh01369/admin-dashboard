@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const handleLogOff = async () => {
         try {
-            await axios.post('http://localhost:5000/api/admin/logout', {}, { withCredentials: true });
+            await axios.post('https://ecommerce-backend-gpta.onrender.com/api/admin/logout', {}, { withCredentials: true });
             navigate('/login');
         } catch (error) {
             console.error('Logout failed:', error);
