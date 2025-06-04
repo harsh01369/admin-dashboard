@@ -9,6 +9,9 @@ import Users from './components/Users';
 import Sales from './components/Sales';
 import PrintOrder from './components/PrintOrder';
 
+// Set up Axios default configuration
+axios.defaults.withCredentials = true; // Ensure credentials are sent with every request
+
 function App() {
     const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
