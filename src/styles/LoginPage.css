@@ -1,0 +1,102 @@
+/* AdminLoginPage.css */
+.admin-login-page {
+    max-width: 400px;
+    margin: 100px auto; /* Centers the form on the page with space from top */
+    padding: 30px;
+    background: #f9f9f9; /* Light background for the form itself */
+    border-radius: 8px; /* Rounded corners for the inner box */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Standard shadow */
+    font-family: Arial, sans-serif;
+    position: relative; /* Needed for the pseudo-element border */
+    border: 2px solid transparent; /* Make space for the gradient border to shine through */
+    background-clip: padding-box; /* Ensures background doesn't go under the border area */
+    box-sizing: border-box; /* Ensures padding and border are included in width/height */
+}
+
+    .admin-login-page::before {
+        content: '';
+        position: absolute;
+        top: -2px; /* Position to create the border effect */
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #007bff, #00c4ff); /* Your blue gradient */
+        z-index: -1; /* Place it behind the main content box */
+        border-radius: 10px; /* Slightly larger radius for the gradient border to look good */
+    }
+
+    .admin-login-page h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #1a3c61; /* Dark blue for heading */
+        text-align: center;
+        margin-top: 0; /* Remove default top margin if any from h1 */
+        margin-bottom: 25px;
+    }
+
+    .admin-login-page .form-group {
+        margin-bottom: 20px;
+    }
+
+    .admin-login-page label {
+        display: block;
+        font-size: 1.1rem; /* Adjusted for better proportion */
+        font-weight: bold;
+        color: #1a3c61; /* Dark blue for labels */
+        margin-bottom: 8px;
+    }
+
+    .admin-login-page input[type="text"],
+    .admin-login-page input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; /* Important for width and padding calculation */
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+        .admin-login-page input[type="text"]:focus,
+        .admin-login-page input[type="password"]:focus {
+            border-color: #007bff; /* Blue border on focus */
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle glow on focus */
+        }
+
+    .admin-login-page button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient for button */
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+        .admin-login-page button[type="submit"]:hover {
+            background: linear-gradient(45deg, #0056b3, #007bff); /* Slightly darker/shifted gradient on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .admin-login-page button[type="submit"]:active {
+            transform: translateY(0); /* Button press effect */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+    /* Styling for potential error messages (optional, if you add an error display in your JS) */
+    .admin-login-page .error-message {
+        color: #D8000C; /* Red for errors */
+        background-color: #FFD2D2; /* Light red background */
+        border: 1px solid #D8000C;
+        padding: 10px;
+        margin-top: 15px;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
