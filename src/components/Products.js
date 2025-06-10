@@ -446,7 +446,7 @@ const Products = () => {
                                 <td>{product.onOff ? 'On' : 'Off'}</td>
                                 <td>
                                     {product.images.slice(0, 2).map((image, idx) => (
-                                        <img key={idx} src={`http://localhost:5000${image}`} alt={product.name} />
+                                        <img key={idx} src={`https://ecommerce-backend-gpta.onrender.com${image}`} alt={product.name} />
                                     ))}
                                     {product.images.length > 2 && <span>+{product.images.length - 2} more</span>}
                                 </td>
