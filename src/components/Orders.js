@@ -280,7 +280,7 @@ const Orders = () => {
         return aSerial.localeCompare(bSerial);
     });
 
-    // Log sorted orders for debugging
+    // Log sorted orders for debugging with proper syntax
     console.log('Sorted New Orders:', sortedNewOrders.map(order => ({
         _id: order._id,
         createdAt: order.createdAt,
@@ -290,7 +290,7 @@ const Orders = () => {
             name: item.name,
             quantity: item.quantity
         }))
-    }));
+    })));
 
     return (
         <div className="orders-container">
