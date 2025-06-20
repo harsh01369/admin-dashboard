@@ -7,12 +7,6 @@
     border: 1px solid #e0e0e0;
 }
 
-    .print-order h1 {
-        color: #1B263B;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
 .order-details {
     margin-bottom: 20px;
 }
@@ -32,7 +26,8 @@
     margin-top: 10px;
 }
 
-    .order-items-table th, .order-items-table td {
+    .order-items-table th,
+    .order-items-table td {
         padding: 10px;
         border: 1px solid #e0e0e0;
         text-align: left;
@@ -47,5 +42,18 @@
     .print-order {
         border: none;
         box-shadow: none;
+    }
+
+    .header .shipping-address {
+        font-size: 1.2rem;
+    }
+
+    .company-info img {
+        max-width: 100px;
+        max-height: 50px;
+    }
+
+    .return-section {
+        font-size: 0.9rem;
     }
 }

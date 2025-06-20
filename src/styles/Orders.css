@@ -1,3 +1,4 @@
+/* Existing styles remain unchanged */
 .orders-container {
     padding: 40px 20px;
     max-width: 95%;
@@ -150,5 +151,86 @@
     .move-all-button {
         font-size: 1rem;
         padding: 10px 20px;
+    }
+}
+
+/* New Notification Popup Styles */
+.notification-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #28a745; /* Matches success color theme */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.notification-content {
+    text-align: center;
+}
+
+    .notification-content h3 {
+        margin: 0 0 10px;
+        color: #1a3c61; /* Matches header color */
+        font-size: 1.5rem;
+    }
+
+    .notification-content p {
+        margin: 0 0 15px;
+        color: #1a3c61;
+        font-size: 1.1rem;
+    }
+
+    .notification-content button {
+        padding: 10px 20px;
+        background-color: #007bff; /* Matches table header theme */
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+    }
+
+        .notification-content button:hover {
+            background: #0056b3; /* Matches button hover theme */
+            transform: scale(1.05);
+        }
+
+/* Animation for popup appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .notification-popup {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .notification-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .notification-content p {
+        font-size: 1rem;
+    }
+
+    .notification-content button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
     }
 }

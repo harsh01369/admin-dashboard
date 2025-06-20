@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getOrders, cancelOrder, markOrderDelivered, moveOrdersToSales } from '../services/orderService';
 import PrintOrder from './PrintOrder';
 import '../styles/Orders.css';
+
+// Add a sound file (e.g., 'notification.mp3') to your public folder
+const notificationSound = new Audio('/notification.mp3'); // Ensure this file exists
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -10,7 +13,9 @@ const Orders = () => {
     const [success, setSuccess] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [selectedOrders, setSelectedOrders] = useState([]);
+    const [showNotification, setShowNotification] = useState(false);
     const navigate = useNavigate();
+    const previousOrderCount = useRef(0);
 
     const formatPrice = (price) => price.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
 
@@ -20,8 +25,17 @@ const Orders = () => {
                 setIsLoading(true);
                 const response = await getOrders();
                 console.log('Orders fetched:', response.data);
-                setOrders(response.data || []);
+                const currentOrders = response.data || [];
+                setOrders(currentOrders);
                 setError(null);
+
+                // Check for new orders and trigger notification
+                const newOrderCount = currentOrders.filter(order => !order.isDelivered && !order.isMovedToSales).length;
+                if (newOrderCount > previousOrderCount.current && newOrderCount > 0) {
+                    notificationSound.play().catch(err => console.error('Sound playback failed:', err));
+                    setShowNotification(true);
+                }
+                previousOrderCount.current = newOrderCount;
             } catch (err) {
                 console.error('Fetch orders error:', err.response?.data || err.message);
                 setError('Failed to fetch orders. Please try again.');
@@ -32,7 +46,11 @@ const Orders = () => {
                 setIsLoading(false);
             }
         };
+
         fetchOrders();
+        const intervalId = setInterval(fetchOrders, 5000); // Poll every 5 seconds
+
+        return () => clearInterval(intervalId); // Cleanup on unmount
     }, [navigate]);
 
     const handleCancelOrder = async (orderId) => {
@@ -272,7 +290,7 @@ const Orders = () => {
             name: item.name,
             quantity: item.quantity
         }))
-    })));
+    }));
 
     return (
         <div className="orders-container">
@@ -280,6 +298,17 @@ const Orders = () => {
             {isLoading && <p>Loading orders...</p>}
             {error && <p className="error">{error}</p>}
             {success && <p className="success">{success}</p>}
+
+            {/* Notification Popup */}
+            {showNotification && (
+                <div className="notification-popup">
+                    <div className="notification-content">
+                        <h3>New Order Received!</h3>
+                        <p>A new order has been added. Please check the list below.</p>
+                        <button onClick={() => setShowNotification(false)}>Close</button>
+                    </div>
+                </div>
+            )}
 
             <h2>New Orders</h2>
             {newOrders.length > 0 && (
