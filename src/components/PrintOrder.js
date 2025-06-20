@@ -47,7 +47,7 @@ const PrintOrder = ({ order, orders, onPrint }) => {
                                         </div>
                                         <div class="company-info">
                                             <img src="/logo.png" alt="UWEAR Logo" />
-                                            <p><strong>UWEAR</strong></p>
+                                            <p><strong>U WEAR UK</strong></p>
                                             <p>Jay Maa Building</p>
                                             <p>Droylsden, Manchester, M43 7DJ</p>
                                         </div>
